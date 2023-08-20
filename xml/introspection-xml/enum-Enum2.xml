@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<node xmlns:ext="http://extensions.somewhere.com/schemas/dbus-extensions-v1.0">
+    <ext:enum name="Example.SystemInterface.Enum2">
+        <ext:enumvalue name="VAL0" value="0" >
+        </ext:enumvalue>
+    </ext:enum>
+</node>

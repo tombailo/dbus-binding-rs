@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node xmlns:ext="http://extensions.somewhere.com/schemas/dbus-extensions-v1.0">
+    <ext:struct name="Example.SystemInterface.Struct14">
+        <ext:member type="x" name="member0">
+        </ext:member>
+        <ext:member type="x" name="member1">
+        </ext:member>
+  </ext:struct>
+</node>

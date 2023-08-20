@@ -1,0 +1,8 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node xmlns:ext="http://extensions.somewhere.com/schemas/dbus-extensions-v1.0" name="/" ext:busname="Example.SystemInterface">
+    <node name="Example/SystemInterface/SystemService2">
+        <interface name="Example.SystemInterface.SystemService2"/>
+    </node>
+</node>
+

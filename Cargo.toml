@@ -1,0 +1,26 @@
+[package]
+name = "dbus-binding-rs"
+version = "0.1.0"
+authors = ["Tom Bailey <tom_bailey@btinternet.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "dbus-binding-rs"
+
+[dependencies]
+xmltree = "0.11.0"
+dbus = ">=0.9.7"
+clap = { version = "4.0.32", features = ["derive"] }
+proc-macro2 = "=1.0.55"
+genco = "*"
+convert_case = "*"
+lazy_static = "*"
+
+[dev-dependencies]
+glob = "*"
+
+[patch.crates-io]
+xmltree = { git = "https://github.com/tombailo/xmltree-rs.git" }
+

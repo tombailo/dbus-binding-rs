@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../xsl/html-interface.xsl"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-Bus Object Introspection 1.0//EN" "http://standards.freedesktop.org/dbus/1.0/introspect.dtd">
+<node xmlns:ext="http://extensions.somewhere.com/schemas/dbus-extensions-v1.0">
+    <interface name="Example.SystemInterface.SystemService2">
+        <method name="method0">
+            <arg type="s" name="arg" direction="in">
+            </arg>
+            <arg type="u" name="arg1" direction="in" >
+            </arg>
+            <arg type="(isas)" ext:type="[Struct15]" name="result" direction="out" >
+            </arg>
+        </method>
+        <method name="method1">
+            <arg type="s" name="arg" direction="in" >
+            </arg>
+            <arg type="s" name="arg1" direction="in" >
+            </arg>
+            <arg type="u" name="arg2" direction="in" >
+            </arg>
+            <arg type="(isas)" ext:type="[Struct15]" name="result" direction="out" >
+            </arg>
+        </method>
+        <method name="method2">
+            <arg type="s" name="arg" direction="in" >
+            </arg>
+            <arg type="s" name="arg1" direction="in" >
+            </arg>
+            <arg type="(isas)" ext:type="[Struct15]" name="result" direction="out" >
+            </arg>
+        </method>
+        <method name="method3">
+            <arg type="s" name="arg" direction="in">
+            </arg>
+            <arg type="i" ext:type="[Enum6]" name="result" direction="out" >
+            </arg>
+        </method>
+        <method name="method4">
+            <arg type="s" name="arg" direction="in" >
+            </arg>
+            <arg type="(ssssiu)" ext:type="[Struct19]" name="result" direction="out" >
+            </arg>
+            <ext:possible-errors>
+                <ext:error name="Example.SystemInterface.Error.Error8"/>
+            </ext:possible-errors>
+            <ext:const />
+        </method>
+        <method name="method5">
+            <arg type="a(ssssiu)" ext:type="a[Struct19]" name="result" direction="out" >
+            </arg>
+            <ext:const />
+        </method>
+        <method name="method6">
+            <arg type="s" name="arg" direction="in" >
+            </arg>
+            <arg type="b" name="result" direction="out" >
+            </arg>
+            <ext:possible-errors>
+                <ext:error name="Example.SystemInterface.Error.Error8"/>
+                <ext:error name="Example.SystemInterface.Error.Error9"/>
+            </ext:possible-errors>
+        </method>
+        <method name="method7">
+            <arg type="s" name="arg" direction="in" >
+            </arg>
+            <arg type="a(sssuussssui)" ext:type="a[Struct17]" name="result" direction="out" >
+            </arg>
+            <ext:const />
+        </method>
+        <method name="method8">
+            <arg type="s" name="arg" direction="in" >
+            </arg>
+            <arg type="i" name="result" direction="out" >
+            </arg>
+            <ext:possible-errors>
+                <ext:error name="Example.SystemInterface.Error.Error10"/>
+            </ext:possible-errors>
+            <ext:const />
+        </method>
+        <method name="method9">
+            <arg type="s" name="arg" direction="in" >
+            </arg>
+            <arg type="a(sssuussssui)" ext:type="a[Struct17]" name="result" direction="out" >
+            </arg>
+            <ext:possible-errors>
+                <ext:error name="Example.SystemInterface.Error.Error8"/>
+            </ext:possible-errors>
+            <ext:const />
+        </method>
+        <method name="method10">
+            <arg type="a(sssuussssui)" ext:type="a[Struct17]" name="result" direction="out" >
+            </arg>
+            <ext:const />
+        </method>
+        <method name="method11">
+            <arg type="s" name="arg" direction="in" >
+            </arg>
+            <arg type="b" name="result" direction="out" >
+            </arg>
+            <ext:possible-errors>
+                <ext:error name="Example.SystemInterface.Error.Error10"/>
+                <ext:error name="Example.SystemInterface.Error.Error9"/>
+            </ext:possible-errors>
+        </method>
+        <method name="method12">
+            <arg type="s" name="arg" direction="in" >
+            </arg>
+            <arg type="b" name="arg1" direction="in" >
+            </arg>
+            <arg type="i" ext:type="[Enum7]" name="result" direction="out" >
+            </arg>
+            <ext:possible-errors>
+                <ext:error name="Example.SystemInterface.Error.Error10"/>
+                <ext:error name="Example.SystemInterface.Error.Error11"/>
+            </ext:possible-errors>
+        </method>
+        <method name="method13">
+            <arg type="as"  name="result" direction="out" >
+            </arg>
+            <ext:const />
+        </method>
+        <method name="method14">
+            <arg type="(a(xx))" ext:type="[Struct13]" name="result" direction="out">
+            </arg>
+            <ext:const/>
+        </method>
+        <method name="method15">
+            <arg type="(iaia{ss})" ext:type="[Struct12]" name="result" direction="out">
+            </arg>
+            <ext:const/>
+        </method>
+
+        <signal name="Signal0">
+            <arg type="s" name="arg" >
+            </arg>
+            <arg type="i" ext:type="[Enum3]" name="arg1">
+            </arg>
+        </signal>
+        <signal name="Signal1">
+            <arg type="a{si}" ext:type="a{s[Enum4]}" name="arg">
+            </arg>
+        </signal>
+        <signal name="Signal2">
+            <arg type="a{si}" ext:type="a{s[Enum0]}" name="arg">
+            </arg>
+        </signal>
+        <signal name="Signal3">
+            <arg type="as" name="arg" >
+            </arg>
+        </signal>
+        <signal name="Signal4">
+            <arg type="as" name="arg" >
+            </arg>
+        </signal>
+
+    </interface>
+</node>

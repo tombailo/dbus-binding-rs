@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node xmlns:ext="http://extensions.somewhere.com/schemas/dbus-extensions-v1.0">
+    <ext:errors namespace="Example.SystemInterface.Error">
+        <ext:error name="Not Found">
+        </ext:error>
+    </ext:errors>
+</node>
