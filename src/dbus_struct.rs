@@ -13,9 +13,6 @@ pub struct DbusStruct {
     project_name : String,
     /// Names of struct members
     members : Vec<String>,
-    /// The Rust types of the members as received from DBus.
-    /// These will be built-in types
-    member_types : Vec<String>,
     /// The Rust types of the members as exposed on API.
     /// These types may be user-defined in the case of enums
     member_ext_types : Vec<DbusType>
@@ -30,13 +27,10 @@ impl DbusStruct {
             let tokens : Vec<&str> = name_str.rsplit(".").collect();
 
             let mut members : Vec<String> = Vec::new();
-            let mut member_types : Vec<String> = Vec::new();
             let mut member_ext_types : Vec<DbusType> = Vec::new();
 
             while let Some(child) = elem.take_child("member")
             {
-                let member_type = dbus_type_2_rust_type(child.attributes.get(&TYPE_ATTRIBUTE).unwrap()).to_string();
-                member_types.push(member_type.clone());
                 members.push(prefix_keywords(child.attributes.get(&NAME_ATTRIBUTE).unwrap()));
                 member_ext_types.push(get_dbus_type(&child));
             }
@@ -44,7 +38,6 @@ impl DbusStruct {
             Ok( DbusStruct { name: tokens[0].to_string(),
                 project_name : tokens[1].to_string(),
                 members,
-                member_types,
                 member_ext_types} )
         }
         else

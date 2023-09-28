@@ -3,9 +3,6 @@ extern crate xmltree;
 use xmltree::Element;
 use std::collections::HashMap;
 
-
-use crate::dbus_common::*;
-
 #[derive(Clone)]
 pub struct DbusServiceInfo {
     pub default_bus_name : String,
@@ -44,7 +41,6 @@ impl DbusServices {
                     }
                 }
             }
-
         }
     }
 
@@ -59,9 +55,5 @@ impl DbusServices {
                     interface_name: "".into() }
             }
         }
-    }
-
-    pub fn get_default_busname(&self) -> &String {
-        &self.default_bus_name
     }
 }

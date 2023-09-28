@@ -1,7 +1,7 @@
 extern crate xmltree;
 
 use clap::Parser;
-use std::{fs, io::BufWriter, env};
+use std::{fs, io::BufWriter};
 use std::rc::Rc;
 use std::io::Write;
 use genco::prelude::*;
