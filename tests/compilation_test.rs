@@ -1,6 +1,7 @@
 use std::process::Command;
 use std::io::{self, Write};
 use glob::glob;
+use fs_extra::dir::{CopyOptions, copy};
 
 struct Cleaner
 {}
@@ -15,7 +16,7 @@ impl Drop for Cleaner
 {
     fn drop(&mut self) {
         let cleanup_output = Command::new("rm")
-            .args(["-r", "target/tmp/system_interface", "tests/test_app/target"])
+            .args(["-r", concat!(env!("CARGO_TARGET_TMPDIR"), "/test_app"), concat!(env!("CARGO_TARGET_TMPDIR"), "/system_interface")])
             .output()
             .expect("Failed to clean up");
 
@@ -31,9 +32,9 @@ fn generate_and_compile()
 {
     let _cleaner = Cleaner::new();
 
-    let mut compile_command = Command::new("target/debug/dbus-binding-rs");
+    let mut compile_command = Command::new(env!("CARGO_BIN_EXE_dbus-binding-rs"));
 
-    compile_command.args(["--output-dir", "target/tmp"]);
+    compile_command.args(["--output-dir", env!("CARGO_TARGET_TMPDIR")]);
 
     for file in glob("xml/*/*.xml").expect("Failed to read directory")
     {
@@ -50,7 +51,7 @@ fn generate_and_compile()
 
     let compile_output = Command::new("cargo")
         .arg("build")
-        .current_dir("target/tmp/system_interface")
+        .current_dir(concat!(env!("CARGO_TARGET_TMPDIR"), "/system_interface"))
         .output()
         .expect("Failed to compile lib");
 
@@ -59,9 +60,13 @@ fn generate_and_compile()
 
     assert!(compile_output.status.success());
 
+    let mut copy_options = CopyOptions::new();
+    copy_options.overwrite = true;
+    copy("tests/test_app", env!("CARGO_TARGET_TMPDIR"), &copy_options).unwrap();
+
     let compile_app_output = Command::new("cargo")
         .arg("build")
-        .current_dir("tests/test_app")
+        .current_dir(concat!(env!("CARGO_TARGET_TMPDIR"), "/test_app"))
         .output()
         .expect("Failed to compile test application");
 
