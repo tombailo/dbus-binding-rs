@@ -175,6 +175,8 @@ impl CodeGenerator for DbusInterface {
  
         // See https://docs.rs/genco/0.17.2/genco/macro.quote.html
         let generated_code : rust::Tokens = quote! {
+            #[allow(non_camel_case_types)]$['\r']
+            #[allow(non_snake_case)]$['\r']
             pub mod $name {
 
                 use super::*;
@@ -210,7 +212,7 @@ impl CodeGenerator for DbusInterface {
 
 
                     // For each DBus API method...
-                    $(for method in methods => $['\r']$(method.get_signature())
+                    $(for method in methods => $['\r']#[allow(non_snake_case)]$['\r']$(method.get_signature())
                     {
                         $(if ! method.return_type.type_name.is_empty()
                         {
@@ -255,6 +257,7 @@ impl CodeGenerator for DbusInterface {
 
                     // For each signal...
                     $(for signal in &self.signals => 
+                        #[allow(non_snake_case)]$['\r']
                         $['\r']pub fn listen$(&signal.name)<F>(&self, callback: F)
                             where F: Fn($(&signal.name)) -> bool + Send + 'static {
                                 self.proxy.match_signal(move |sig: $(&signal.name), _: &Connection, _: &Message| {

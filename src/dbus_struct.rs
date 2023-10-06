@@ -64,9 +64,10 @@ impl CodeGenerator for DbusStruct {
 
         // See https://docs.rs/genco/0.17.2/genco/macro.quote.html
         let generated_code : rust::Tokens = quote! {
-
+            #[allow(non_camel_case_types)]$['\r']
             pub type $(name)Message = ($(for t in member_ext_types => $(t.get_type_decl()), ));
 
+            #[allow(non_camel_case_types)]$['\r']
             #[derive(Debug, Clone)]
             pub struct $name {
                 $(for (m, t) in members.into_iter().zip(member_ext_types) join(, ) => $['\r']pub $m : $(t.get_type_decl()))

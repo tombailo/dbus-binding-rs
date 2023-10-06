@@ -258,9 +258,6 @@ pub fn make_lib_output_writer(path : &std::path::PathBuf, file : &str) -> std::i
     // Write out pragmas and use directives that must be at
     // the top of the file
     let generated_code : rust::Tokens = quote! {
-        #![allow(non_camel_case_types)]$['\r']
-        #![allow(non_snake_case)]
-
         extern crate dbus;
         #[macro_use] extern crate enum_primitive;
 
