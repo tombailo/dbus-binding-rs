@@ -243,7 +243,7 @@ impl CodeGenerator for DbusInterface {
                                     ($(for arg in &method.args => $(&arg.name), )));
                             // Check the return, map errors is necessary
                             match dbus_return_val {
-                                Ok(return_val) => Ok(()),
+                                Ok(_return_val) => Ok(()),
                                 Err(err) => {
                                     match err.name() {
                                         $(for err in &method.errors => 
